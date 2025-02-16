@@ -236,10 +236,11 @@ class Board:
                 env.CXXFLAGS += ['-D%s=%s' % (n, v)]
 
         env.CFLAGS += [
+            "-fdump-tree-optimized-graph",
+            "-fstack-usage",
             '-ffunction-sections',
             '-fdata-sections',
             '-fsigned-char',
-
             '-Wall',
             '-Wextra',
             '-Werror=format',
@@ -351,6 +352,9 @@ class Board:
             env.PRIVATE_KEY = cfg.options.private_key
             
         env.CXXFLAGS += [
+            "-fdump-tree-optimized-graph",
+            "-fstack-usage",
+            "-fdump-lang-class",
             '-std=gnu++11',
 
             '-fdata-sections',
